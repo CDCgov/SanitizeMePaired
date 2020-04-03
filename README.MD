@@ -97,7 +97,7 @@ Run the GUI version with the following command. A folder containing test fastq f
 
 Run the CLI version with the test files with the following command
 ```
-~/SanitizeMePaired/SanitizeMePaired_CLI.py -i ~/SanitizeMePaired/test -r ~/SanitizeMePaired/human_g1k_v37.fasta.gz -o ~/dehost_output/test
+ ~/SanitizeMePaired/SanitizeMePaired_CLI.py -i SanitizeMePaired/test/ -r ~/SanitizeMe/human_g1k_v37.fasta.gz -o ~/dehost_output/test_paired_CLI
 ```
 
 Get help for the CLI version with the following command
@@ -121,12 +121,14 @@ You can use any fasta or fasta.gz format reference file for SanitizeMePaired.
 
 ## What the code is actually doing
 
-The code is running the following command using the reference file (human_g1k_v37.fasta.gz) and the fastq file (E0126.fastq).
+The code is running the following commands.
 
 ```
-minimap2 -ax map-ont human_g1k_v37.fasta.gz E0126.fastq -t 12 > E0126_g1k.sam
-samtools view -u -f 4 E0126_g1k.sam > E0126_g1k_unmapped.sam
-samtools bam2fq E0126_g1k_unmapped.sam > E0126_g1k_unmapped.fastq
+minimap2 -ax sr /home/jyao/SanitizeMe/human_g1k_v37.fasta.gz SanitizeMePaired/test/F3D0_S188_L001_R1_001.fastq SanitizeMePaired/test/F3D0_S188_L001_R2_001.fastq -t 4 > /home/jyao/dehost_output/test_paired_CLI/F3D0_S188_L001_R1_001.sam
+samtools view -u -f 4 /home/jyao/dehost_output/test_paired_CLI/F3D0_S188_L001_R1_001.sam > /home/jyao/dehost_output/test_paired_CLI/F3D0_S188_L001_R1_001_filtered.sam
+samtools bam2fq /home/jyao/dehost_output/test_paired_CLI/F3D0_S188_L001_R1_001_filtered.sam > /home/jyao/dehost_output/test_paired_CLI/F3D0_S188_L001_R1_001_filtered.fastq
+cat /home/jyao/dehost_output/test_paired_CLI/F3D0_S188_L001_R1_001_filtered.fastq | grep '^@.*/1$' -A 3 --no-group-separator >/home/jyao/dehost_output/test_paired_CLI/F3D0_S188_L001_R1_001_filtered_r1.fastq
+cat /home/jyao/dehost_output/test_paired_CLI/F3D0_S188_L001_R1_001_filtered.fastq | grep '^@.*/2$' -A 3 --no-group-separator >/home/jyao/dehost_output/test_paired_CLI/F3D0_S188_L001_R1_001_filtered_r2.fastq
 ```
 ## Author
 Jiangwei Yao
