@@ -2,7 +2,7 @@
 
 SanitizeMePaired is a GUI application (with an equivalent CLI) that takes paired fastq files, and removes reads mapping to a reference file from the paired fastq files. The most obvious use is to remove the host contaminants from metagenomic sequencing. The GUI version requires direct access to a linux computer or X11 forwarding.
 
-![Image description](https://github.com/jiangweiyao/SanitizeMePaired/blob/master/SanitizeMePaired_Screenshot.jpg)
+![Image description](https://github.com/jiangweiyao/SanitizeMePaired/blob/master/SanitizeMePaired_Screenshot2.jpg)
 
 It uses Minimap2 to map to the reference sequence and samtools to pull out the reads that did not map.
 
