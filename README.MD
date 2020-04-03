@@ -97,7 +97,7 @@ Run the GUI version with the following command. A folder containing test fastq f
 
 Run the CLI version with the test files with the following command
 ```
-~/SanitizeMePaired/SanitizeMePaired_CLI.py -i ~/SanitizeMePaired/test -r ~/SanitizeMePaired/human_g1k_v37.fasta.gz -o ~/dehost_output/test --Nanopore
+~/SanitizeMePaired/SanitizeMePaired_CLI.py -i ~/SanitizeMePaired/test -r ~/SanitizeMePaired/human_g1k_v37.fasta.gz -o ~/dehost_output/test
 ```
 
 Get help for the CLI version with the following command
