@@ -1,3 +1,6 @@
+## Deprecated. SanitizeMePaired has been included with SanitizeMe at:
+https://github.com/CDCgov/SanitizeMe
+
 # Remove Host DNA from Paired Reads Using Minimap2 and Samtools 
 
 SanitizeMePaired is a GUI application (with an equivalent CLI) that takes paired fastq files, and removes reads mapping to a reference file from the paired fastq files. The most obvious use is to remove the host contaminants from metagenomic sequencing. The GUI version requires direct access to a linux computer or X11 forwarding.
